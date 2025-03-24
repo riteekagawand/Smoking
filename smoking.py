@@ -148,10 +148,14 @@
 #     print("\n===== Model Training and Evaluation =====")
     
 #     # Handle class imbalance with SMOTE
+#     # smote = SMOTE(random_state=42)
+#     # X_train_resampled, y_train_resampled = smote.fit_resample(
+#     #     pipeline.named_steps['preprocessor'].fit_transform(X_train), y_train
+#     # )
 #     smote = SMOTE(random_state=42)
-#     X_train_resampled, y_train_resampled = smote.fit_resample(
-#         pipeline.named_steps['preprocessor'].fit_transform(X_train), y_train
-#     )
+#     X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
+#     pipeline.fit(X_train_resampled, y_train_resampled)
+
     
 #     print(f"Original class distribution: {pd.Series(y_train).value_counts().to_dict()}")
 #     print(f"Resampled class distribution: {pd.Series(y_train_resampled).value_counts().to_dict()}")
@@ -195,12 +199,15 @@
 #     classifier = best_model.named_steps['classifier']
     
 #     # Get feature names after one-hot encoding
+#     # ohe = preprocessor.named_transformers_['cat'].named_steps['onehot']
+#     # feature_names = (
+#     #     numerical_features + 
+#     #     ohe.get_feature_names_out(categorical_features).tolist()
+#     # )
 #     ohe = preprocessor.named_transformers_['cat'].named_steps['onehot']
-#     feature_names = (
-#         numerical_features + 
-#         ohe.get_feature_names_out(categorical_features).tolist()
-#     )
-    
+#     categorical_names = ohe.get_feature_names_out(categorical_features)
+#     feature_names = numerical_features + list(categorical_names)
+
 #     # Get feature importance
 #     importances = classifier.feature_importances_
     
@@ -431,146 +438,51 @@
 
 import pandas as pd
 import numpy as np
-import os
-import joblib
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline as SklearnPipeline
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-from sklearn.impute import SimpleImputer
-from imblearn.over_sampling import SMOTE
-from imblearn.pipeline import Pipeline  # imblearn's pipeline for SMOTE compatibility
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
-np.random.seed(42)
+# Load the dataset
+df = pd.read_csv("D:/mini_project/Smoking-Datasets/combined_smoking_cessation_data.csv")  # Change the filename as needed
 
-def load_and_preprocess_data(file_path):
-    print("Loading data...")
-    df = pd.read_csv(file_path)
-    print("\nDataset shape:", df.shape)
-    print("\nMissing values:\n", df.isnull().sum())
-    print("\nQuit Success distribution:\n", df['Quit Success'].value_counts(normalize=True) * 100)
-    return df
+# Display basic info
+print("Dataset Preview:\n", df.head())
+print("\nMissing Values:\n", df.isnull().sum())
 
-def exploratory_data_analysis(df):
-    print("\n===== Exploratory Data Analysis =====")
-    numerical_features = ['Age', 'Smoking Duration', 'Cigarettes per day',
-                          'Previous Quit Attempts', 'Nicotine Dependence Score']
-    categorical_features = ['Location', 'Gender', 'Smoking Behavior',
-                            'Craving Level', 'Stress Level', 'Physical Activity',
-                            'Support System', 'Reason for Start Smoking']
+# Handle missing values (You can change this strategy)
+df.fillna(df.median(numeric_only=True), inplace=True)
 
-    print("\nNumerical features statistics:\n", df[numerical_features].describe())
+# Encode categorical variables
+label_encoders = {}
+for column in df.select_dtypes(include=['object']).columns:
+    label_encoders[column] = LabelEncoder()
+    df[column] = label_encoders[column].fit_transform(df[column])
 
-    print("\nUnique values in categorical features:")
-    for feature in categorical_features:
-        print(f"{feature}: {df[feature].nunique()} unique values")
+# Normalize numerical data
+scaler = StandardScaler()
+numeric_cols = df.select_dtypes(include=['int64', 'float64']).columns
+df[numeric_cols] = scaler.fit_transform(df[numeric_cols])
 
-    df_corr = df.copy()
-    df_corr['Quit Success Numeric'] = df_corr['Quit Success'].map({'Yes': 1, 'No': 0})
-    print("\nCorrelation with Quit Success:")
-    for feature in numerical_features:
-        corr = df_corr[feature].corr(df_corr['Quit Success Numeric'])
-        print(f"{feature}: {corr:.4f}")
+# Define features (X) and target (y)
+X = df.drop(columns=["Quit Success"])  # Change to actual column name
+y = df["Quit Success"]
 
-    return df
+# Split into training and testing sets (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-def prepare_features_and_target(df):
-    # Derived Feature
-    df['Smoking Percentage'] = (df['Smoking Duration'] * df['Cigarettes per day']) / df['Age']
+# Save preprocessed data
+X_train.to_csv("X_train.csv", index=False)
+X_test.to_csv("X_test.csv", index=False)
+y_train.to_csv("y_train.csv", index=False)
+y_test.to_csv("y_test.csv", index=False)
 
-    X = df.drop('Quit Success', axis=1)
-    y = df['Quit Success'].map({'Yes': 1, 'No': 0})
+print("\nPreprocessing Completed! Data saved for model training.")
 
-    numerical_features = ['Age', 'Smoking Duration', 'Cigarettes per day',
-                          'Previous Quit Attempts', 'Nicotine Dependence Score', 'Smoking Percentage']
-    categorical_features = ['Location', 'Gender', 'Smoking Behavior',
-                            'Craving Level', 'Stress Level', 'Physical Activity',
-                            'Support System', 'Reason for Start Smoking']
+#handling missing values 
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,
-                                                        random_state=42, stratify=y)
-    print(f"\nTraining samples: {X_train.shape[0]}, Testing samples: {X_test.shape[0]}")
-    return X_train, X_test, y_train, y_test, numerical_features, categorical_features
+# Fill missing values in 'Support System' with its mean
+df["Support System"].fillna(df["Support System"].mean(), inplace=True)
 
-def build_model_pipeline(numerical_features, categorical_features):
-    num_transformer = SklearnPipeline([
-        ('imputer', SimpleImputer(strategy='median')),
-        ('scaler', StandardScaler())
-    ])
+# Save the updated dataset
+df.to_csv("train_preprocessed.csv", index=False)
 
-    cat_transformer = SklearnPipeline([
-        ('imputer', SimpleImputer(strategy='most_frequent')),
-        ('onehot', OneHotEncoder(handle_unknown='ignore'))
-    ])
-
-    preprocessor = ColumnTransformer([
-        ('num', num_transformer, numerical_features),
-        ('cat', cat_transformer, categorical_features)
-    ])
-
-    pipeline = Pipeline([
-        ('preprocessor', preprocessor),
-        ('smote', SMOTE(random_state=42)),
-        ('classifier', RandomForestClassifier(random_state=42))
-    ])
-
-    return pipeline
-
-def train_and_evaluate_model(pipeline, X_train, X_test, y_train, y_test,
-                             numerical_features, categorical_features):
-    print("\n===== Training and Evaluation =====")
-
-    param_grid = {
-        'classifier__n_estimators': [100, 200],
-        'classifier__max_depth': [None, 10, 20],
-        'classifier__min_samples_split': [2, 5]
-    }
-
-    grid_search = GridSearchCV(pipeline, param_grid, cv=5, scoring='f1', n_jobs=-1, verbose=1)
-    grid_search.fit(X_train, y_train)
-
-    best_model = grid_search.best_estimator_
-    print("\nBest parameters:", grid_search.best_params_)
-
-    y_pred = best_model.predict(X_test)
-    print(f"\nAccuracy: {accuracy_score(y_test, y_pred):.4f}")
-    print("\nClassification Report:\n", classification_report(y_test, y_pred))
-
-    # Feature importances
-    preprocessor = best_model.named_steps['preprocessor']
-    classifier = best_model.named_steps['classifier']
-    ohe = preprocessor.named_transformers_['cat'].named_steps['onehot']
-    feature_names = numerical_features + list(ohe.get_feature_names_out(categorical_features))
-    importances = classifier.feature_importances_
-
-    print("\nTop 10 Features:")
-    for i in np.argsort(importances)[-10:][::-1]:
-        print(f"{feature_names[i]}: {importances[i]:.4f}")
-
-    return best_model, feature_names
-
-def save_model(model, feature_names, output_dir='models'):
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-    joblib.dump(model, f'{output_dir}/smoking_model.pkl')
-    with open(f'{output_dir}/features.txt', 'w') as f:
-        for name in feature_names:
-            f.write(f"{name}\n")
-    print(f"\nModel and features saved in '{output_dir}' directory")
-
-def main():
-    file_path = r"D:\mini_project\Smoking-Datasets\combined_smoking_cessation_data.csv"
-    df = load_and_preprocess_data(file_path)
-    df = exploratory_data_analysis(df)
-    X_train, X_test, y_train, y_test, num_feat, cat_feat = prepare_features_and_target(df)
-    pipeline = build_model_pipeline(num_feat, cat_feat)
-    model, feature_names = train_and_evaluate_model(pipeline, X_train, X_test, y_train, y_test,
-                                                    num_feat, cat_feat)
-    save_model(model, feature_names)
-
-if __name__ == "__main__":
-    main()
+print("✅ Missing values handled! Data saved as 'train_preprocessed.csv'.")

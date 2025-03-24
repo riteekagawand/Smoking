@@ -12,7 +12,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.impute import SimpleImputer
-from imblearn.over_sampling import SMOTETomek
+from imblearn.combine import SMOTETomek
 from imblearn.pipeline import Pipeline  # imblearn's pipeline for SMOTE compatibility
 import shap
 
