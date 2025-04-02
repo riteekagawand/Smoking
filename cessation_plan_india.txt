@@ -1,0 +1,29 @@
+===== SMOKING CESSATION PLAN =====
+
+=== YOUR PROFILE ===
+Location: india
+Gender: Male
+Smoking Behavior: Cigarette Use (Youth)
+Age: 20
+Smoking Duration: 2
+Cigarettes per day: 6
+Previous Quit Attempts: 1
+Craving Level: High
+Stress Level: Medium
+Physical Activity: Moderate
+Support System: Family & Friends
+Nicotine Dependence Score: 3
+Reason for Start Smoking: Stress Relief
+Smoking Percentage: 6.0
+
+=== YOUR QUIT SUCCESS PROBABILITY ===
+Estimated probability of successfully quitting: 47.0%
+
+=== YOUR RECOMMENDATIONS ===
+1. Develop a personalized craving management plan. Identify your triggers and have specific strategies ready for when cravings hit.
+
+=== RESOURCES ===
+1. National Quitline: 1-800-QUIT-NOW (1-800-784-8669)
+2. SmokeFree.gov: https://smokefree.gov
+3. American Lung Association: https://www.lung.org/quit-smoking
+4. CDC Tips From Former Smokers: https://www.cdc.gov/tobacco/campaign/tips/

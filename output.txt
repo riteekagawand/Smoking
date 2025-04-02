@@ -1,0 +1,29 @@
+Dataset Preview:
+         Location   Gender  ... Reason for Start Smoking  Quit Success
+0           Ohio  Overall  ...                Curiosity            No
+1        Alabama   Female  ...            Peer Pressure           Yes
+2  West Virginia     Male  ...            Peer Pressure            No
+3       Illinois  Overall  ...         Family Influence            No
+4    Connecticut     Male  ...            Peer Pressure            No
+
+[5 rows x 15 columns]
+
+Missing Values:
+ Location                        0
+Gender                          0
+Smoking Behavior                0
+Smoking Percentage              0
+Age                             0
+Smoking Duration                0
+Cigarettes per day              0
+Previous Quit Attempts          0
+Craving Level                   0
+Stress Level                    0
+Physical Activity               0
+Support System               3362
+Nicotine Dependence Score       0
+Reason for Start Smoking        0
+Quit Success                    0
+dtype: int64
+
+Preprocessing Completed! Data saved for model training.

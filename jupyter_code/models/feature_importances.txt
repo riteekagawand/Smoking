@@ -1,0 +1,78 @@
+Age: 0.044572727605280395
+Smoking Duration: 0.04331133423292185
+Cigarettes per day: 0.04386141163249342
+Previous Quit Attempts: 0.03117848220710849
+Nicotine Dependence Score: 0.4543682502151035
+Smoking Percentage: 0.050574468245066395
+Location_Alabama: 0.003925577828248845
+Location_Arizona: 0.002194516818948799
+Location_Arkansas: 0.002201584220449432
+Location_California: 0.0012696534544128376
+Location_Colorado: 0.000911979016104749
+Location_Connecticut: 0.0029224183640206717
+Location_Delaware: 0.0029090539653114146
+Location_District of Columbia: 0.0006122160000589459
+Location_Florida: 0.001041660802466302
+Location_Georgia: 0.0030549515266650204
+Location_Guam: 0.0006917237877708693
+Location_Hawaii: 0.0027188241394874193
+Location_Idaho: 0.0006973970878381257
+Location_Illinois: 0.002516237898248154
+Location_Indiana: 0.0026219685606874094
+Location_Iowa: 0.0025238043470644403
+Location_Kansas: 0.0019117936394740037
+Location_Kentucky: 0.0024858005283778795
+Location_Louisiana: 0.0026352492107070266
+Location_Maine: 0.0008572099283147305
+Location_Maryland: 0.0013197870329267251
+Location_Massachusetts: 0.0007568548793005931
+Location_Michigan: 0.001981138927170388
+Location_Minnesota: 0.0020273420596876902
+Location_Mississippi: 0.004529073768714196
+Location_Missouri: 0.002967221731994431
+Location_National (States and DC): 0.0003593265741003062
+Location_Nebraska: 0.002457665410262116
+Location_New Hampshire: 0.0021841584150637154
+Location_New Jersey: 0.003392098486783632
+Location_New Mexico: 0.0005291900968228141
+Location_New York: 0.0012637247597070166
+Location_North Carolina: 0.0037488595807390972
+Location_North Dakota: 0.003405599290619105
+Location_Ohio: 0.002328675027012177
+Location_Oklahoma: 0.0035412316573416648
+Location_Pennsylvania: 0.002358583659268738
+Location_Puerto Rico: 0.00017803015470423724
+Location_Rhode Island: 0.0015389398367567733
+Location_South Carolina: 0.003071927427204276
+Location_South Dakota: 0.0021901560773699984
+Location_Tennessee: 0.001642764873002635
+Location_Texas: 0.0007878016038505125
+Location_Utah: 0.0016011673194412418
+Location_Vermont: 0.0012723683333720813
+Location_Virgin Islands: 0.0009892382074819166
+Location_Virginia: 0.0007282613347421069
+Location_West Virginia: 0.0033503718912566327
+Location_Wisconsin: 0.0034112587457269796
+Location_Wyoming: 0.0004999245853740718
+Gender_Female: 0.007761186834203718
+Gender_Male: 0.007904217910436365
+Gender_Overall: 0.008225212241182285
+Smoking Behavior_Cessation (Youth): 0.004986309225561099
+Smoking Behavior_Cigarette Use (Youth): 0.007597770370088271
+Smoking Behavior_Smokeless Tobacco Use (Youth): 0.007004493935266913
+Craving Level_High: 0.008201416385964154
+Craving Level_Low: 0.008261656178375326
+Craving Level_Medium: 0.007662661432331409
+Stress Level_High: 0.007880740245529459
+Stress Level_Low: 0.007856740602496791
+Stress Level_Medium: 0.007736262465402117
+Physical Activity_Active: 0.008297783018442365
+Physical Activity_Moderate: 0.007937549694280772
+Physical Activity_Sedentary: 0.008064143501131446
+Support System_Family & Friends: 0.041723103956095735
+Support System_Professional Help: 0.03847140015957422
+Reason for Start Smoking_Curiosity: 0.006508603698620841
+Reason for Start Smoking_Family Influence: 0.007104753383808385
+Reason for Start Smoking_Media Influence: 0.007421847614584766
+Reason for Start Smoking_Peer Pressure: 0.007395249501779441
+Reason for Start Smoking_Stress Relief: 0.007013860634415178

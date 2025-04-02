@@ -1,0 +1,83 @@
+Feature,Importance
+Nicotine Dependence Score,0.34255240708982476
+Support System_No Support,0.23574458897161926
+Nicotine-Stress Interaction,0.14565007823258086
+Craving-Nicotine Interaction,0.138531526501218
+Support System_Family & Friends,0.05890202725880939
+Support System_Professional Help,0.04750632413880062
+Craving-Stress Interaction,0.005723900676087464
+Smoking Percentage,0.0031401501421210866
+Duration-Intensity Ratio,0.0026847182965286753
+Age,0.0020641918009092586
+Smoking Duration,0.0019352456274741143
+Cigarettes per day,0.0018456438604269217
+Previous Quit Attempts,0.001192036576553526
+Reason for Start Smoking_Peer Pressure,0.0004433303018268496
+Physical Activity_Active,0.00039316335592949966
+Physical Activity_Moderate,0.0003893220537907504
+Smoking Behavior_Smokeless Tobacco Use (Youth),0.0003853210321017111
+Gender_Male,0.00036152909419826293
+Physical Activity_Sedentary,0.0003569903374735973
+Reason for Start Smoking_Curiosity,0.0003535937931318876
+Smoking Behavior_Cigarette Use (Youth),0.0003444404076052154
+Smoking Behavior_Cessation (Youth),0.0003426283894251637
+Reason for Start Smoking_Media Influence,0.00033373164144509705
+Reason for Start Smoking_Family Influence,0.0003257677650253931
+Age Group_Middle Aged,0.00030636033471734687
+Multiple Attempts_No,0.00030017785619090604
+Location_Kansas,0.0002972767989280472
+Reason for Start Smoking_Stress Relief,0.00029548108295325174
+Gender_Female,0.0002879454846289893
+Age Group_Adult,0.0002802783663856659
+Gender_Overall,0.000280213181699304
+Multiple Attempts_Yes,0.0002616725437569043
+Location_Nebraska,0.00024584543143156546
+Location_South Dakota,0.0002245634190782919
+Location_Rhode Island,0.00019894179915989197
+Location_Wisconsin,0.00018827768409760586
+Location_Delaware,0.00017932797402949596
+Location_New Jersey,0.00017682581645462776
+Age Group_Young Adult,0.0001763960452967486
+Location_North Dakota,0.000176102359284321
+Location_Connecticut,0.00017589205932467533
+Location_Florida,0.00017055267391884526
+Location_Utah,0.0001548229809412348
+Location_Minnesota,0.0001546158622456148
+Location_Ohio,0.00015456107630631917
+Location_Oklahoma,0.00015090374066093916
+Location_Missouri,0.00014964189828295014
+Location_Kentucky,0.0001474117808662584
+Location_West Virginia,0.000144307657841953
+Location_New Hampshire,0.00014305155753681372
+Location_Tennessee,0.00013946920102970024
+Location_Pennsylvania,0.0001361072280920415
+Location_North Carolina,0.00013428378827883073
+Location_South Carolina,0.00013267492231474798
+Location_Arkansas,0.00013062255035491534
+Location_Arizona,0.00013054270726064148
+Location_Georgia,0.00012239645032242295
+Location_Indiana,0.00011961410752421529
+Location_Alabama,0.00011388207680831705
+Location_Louisiana,0.00011075373653364354
+Location_Vermont,0.00010954828402974975
+Location_Hawaii,0.00010940039277456397
+Location_New York,0.0001008631530584813
+Location_Colorado,9.81750838220465e-05
+Location_Texas,9.716549521057662e-05
+Location_Iowa,9.287959798538947e-05
+Location_California,8.779890032201344e-05
+Location_Idaho,8.734710725140085e-05
+Location_Illinois,8.686335138496504e-05
+Location_Mississippi,8.515268089623824e-05
+Location_Guam,8.44008562924209e-05
+Location_National (States and DC),8.343870889687905e-05
+Location_Puerto Rico,8.270777927549615e-05
+Location_Maine,8.201394121887496e-05
+Location_Michigan,8.146846520203792e-05
+Location_Virgin Islands,8.13569645234453e-05
+Location_District of Columbia,7.202278609375107e-05
+Location_Massachusetts,6.499386439082127e-05
+Location_Maryland,6.33202003363817e-05
+Location_Wyoming,5.658458884562264e-05
+Location_New Mexico,5.3329624833286115e-05
+Location_Virginia,4.471659391023931e-05

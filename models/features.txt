@@ -1,0 +1,78 @@
+Age
+Smoking Duration
+Cigarettes per day
+Previous Quit Attempts
+Nicotine Dependence Score
+Smoking Percentage
+Location_Alabama
+Location_Arizona
+Location_Arkansas
+Location_California
+Location_Colorado
+Location_Connecticut
+Location_Delaware
+Location_District of Columbia
+Location_Florida
+Location_Georgia
+Location_Guam
+Location_Hawaii
+Location_Idaho
+Location_Illinois
+Location_Indiana
+Location_Iowa
+Location_Kansas
+Location_Kentucky
+Location_Louisiana
+Location_Maine
+Location_Maryland
+Location_Massachusetts
+Location_Michigan
+Location_Minnesota
+Location_Mississippi
+Location_Missouri
+Location_National (States and DC)
+Location_Nebraska
+Location_New Hampshire
+Location_New Jersey
+Location_New Mexico
+Location_New York
+Location_North Carolina
+Location_North Dakota
+Location_Ohio
+Location_Oklahoma
+Location_Pennsylvania
+Location_Puerto Rico
+Location_Rhode Island
+Location_South Carolina
+Location_South Dakota
+Location_Tennessee
+Location_Texas
+Location_Utah
+Location_Vermont
+Location_Virgin Islands
+Location_Virginia
+Location_West Virginia
+Location_Wisconsin
+Location_Wyoming
+Gender_Female
+Gender_Male
+Gender_Overall
+Smoking Behavior_Cessation (Youth)
+Smoking Behavior_Cigarette Use (Youth)
+Smoking Behavior_Smokeless Tobacco Use (Youth)
+Craving Level_High
+Craving Level_Low
+Craving Level_Medium
+Stress Level_High
+Stress Level_Low
+Stress Level_Medium
+Physical Activity_Active
+Physical Activity_Moderate
+Physical Activity_Sedentary
+Support System_Family & Friends
+Support System_Professional Help
+Reason for Start Smoking_Curiosity
+Reason for Start Smoking_Family Influence
+Reason for Start Smoking_Media Influence
+Reason for Start Smoking_Peer Pressure
+Reason for Start Smoking_Stress Relief
